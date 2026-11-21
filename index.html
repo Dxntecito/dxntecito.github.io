@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alessandro Dante Cabrera Altamirano | Portafolio</title>
+  <style>
+    :root {
+      --bg: #205a28;
+      --surface: #5a0a87;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #1fff6d;
+      --accent-hover: #6fd42b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* Header / Hero */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .bio {
+      max-width: 720px;
+      color: #cbd5e1;
+      margin-bottom: 1.75rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.15rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none !important;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 0.5rem;
+    }
+
+    /* Grid cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+
+    /* Timeline / List */
+    .list-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .list-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .list-header h3 {
+      font-size: 1.05rem;
+    }
+
+    .list-header span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .org {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .list-item ul {
+      padding-left: 1.15rem;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+    }
+
+    .list-item li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+    }
+
+    .skill-box h3 {
+      font-size: 0.92rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-box p {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.75rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer p {
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ENCABEZADO -->
+    <header>
+      <span class="badge">Chiclayo, Perú · Disponible para prácticas y proyectos</span>
+      <h1>Alessandro Dante Cabrera Altamirano</h1>
+      <p class="subtitle">Estudiante de Ingeniería de Sistemas y Computación (USAT) · Desarrollo de Software, QA &amp; Redes</p>
+      <p class="bio">
+        Estudiante de Ingeniería de Sistemas orientado a la innovación tecnológica, con experiencia práctica en desarrollo Full Stack, pruebas de rendimiento (QA con Apache JMeter), administración de bases de datos y diagnóstico de redes. Enfocado en entregar soluciones eficientes, seguras y bien documentadas bajo metodologías ágiles (Scrum) y RUP.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="./cv.pdf" target="_blank" rel="noopener">Descargar CV (PDF)</a>
+        <a class="btn btn-outline" href="https://github.com/Dxntecito" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/alessandro-dante-cabrera-altamirano-13b573252/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="mailto:alessandrodjunior28@gmail.com">Contactar</a>
+      </div>
+    </header>
+
+    <!-- PROYECTOS DESTACADOS -->
+    <section id="proyectos">
+      <h2>Proyectos Destacados</h2>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <div class="card-meta">Full Stack · Proyecto Social</div>
+            <h3>Huella Feliz</h3>
+            <p>Plataforma web orientada a la adopción y cuidado responsable de mascotas, con módulos de frontend, backend y base de datos para gestión de usuarios, mascotas y adopciones.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Full Stack</span>
+            <span class="tag">Web</span>
+            <span class="tag">Base de Datos</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="card-meta">QA &amp; Performance Testing</div>
+            <h3>Room Flow – Empresa Bolívar</h3>
+            <p>Diseño y ejecución de pruebas de carga y rendimiento para el módulo de gestión de usuarios, con documentación técnica de hallazgos y propuestas de mejora.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Apache JMeter</span>
+            <span class="tag">QA</span>
+            <span class="tag">RUP</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="card-meta">Android &amp; REST API</div>
+            <h3>EcoRuta &amp; CampusGo</h3>
+            <p>Aplicaciones móviles en Android (Java/XML) conectadas a APIs REST en Python (Flask) y MySQL para gestión de rutas municipales offline-first y movilidad universitaria compartida.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Java / Android</span>
+            <span class="tag">Python / Flask</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experiencia">
+      <h2>Experiencia</h2>
+
+      <div class="list-item">
+        <div class="list-header">
+          <h3>Analista y Tester de Software (Proyecto Room Flow)</h3>
+          <span>2025 · Chiclayo, Perú</span>
+        </div>
+        <div class="org">Empresa Bolívar</div>
+        <ul>
+          <li>Diseño y ejecución de pruebas de carga y rendimiento con Apache JMeter enfocadas en el módulo de usuarios.</li>
+          <li>Documentación de hallazgos técnicos, incidencias y mejoras funcionales bajo metodología RUP.</li>
+        </ul>
+      </div>
+
+      <div class="list-item">
+        <div class="list-header">
+          <h3>Soporte Técnico y Redes</h3>
+          <span>2025 · Chiclayo, Perú</span>
+        </div>
+        <div class="org">IEP Peruano Español</div>
+        <ul>
+          <li>Análisis de conectividad institucional, tipología de enlaces y volumen de dispositivos conectados.</li>
+          <li>Elaboración de diagnóstico técnico sobre estabilidad de red y rendimiento general del sistema.</li>
+        </ul>
+      </div>
+
+      <div class="list-item">
+        <div class="list-header">
+          <h3>Desarrollador Full Stack</h3>
+          <span>2025 · Chiclayo, Perú</span>
+        </div>
+        <div class="org">Proyecto Social Universitario – Huella Feliz</div>
+        <ul>
+          <li>Desarrollo de módulos frontend y backend para la plataforma de adopción y cuidado responsable de mascotas.</li>
+          <li>Implementación de la base de datos para el registro de usuarios, mascotas y procesos de adopción.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HABILIDADES TÉCNICAS -->
+    <section id="habilidades">
+      <h2>Habilidades Técnicas</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>Desarrollo de Software</h3>
+          <p>Python (Flask), Java (Android Studio), Desarrollo Web Full Stack (HTML, CSS, JavaScript).</p>
+        </div>
+        <div class="skill-box">
+          <h3>Bases de Datos</h3>
+          <p>Diseño y administración de bases de datos relacionales (MySQL, PostgreSQL).</p>
+        </div>
+        <div class="skill-box">
+          <h3>QA y Pruebas</h3>
+          <p>Pruebas de rendimiento con Apache JMeter, aseguramiento de calidad (QA), Selenium y documentación técnica.</p>
+        </div>
+        <div class="skill-box">
+          <h3>Redes y Metodologías</h3>
+          <p>Diagnóstico de redes, soporte técnico, servidores Linux (Ubuntu), Scrum Master y RUP.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCACIÓN E IDIOMAS -->
+    <section id="educacion">
+      <h2>Educación e Idiomas</h2>
+      <div class="list-item">
+        <div class="list-header">
+          <h3>Ingeniería de Sistemas y Computación</h3>
+          <span>2022 – Actualidad</span>
+        </div>
+        <div class="org">Universidad Católica Santo Toribio de Mogrovejo (USAT) · Chiclayo, Perú</div>
+      </div>
+
+      <div class="list-item">
+        <div class="list-header">
+          <h3>Certificado de Tutoría Académica – Ingeniería de Sistemas</h3>
+          <span>2025</span>
+        </div>
+        <div class="org">Universidad Católica Santo Toribio de Mogrovejo (USAT)</div>
+      </div>
+
+      <div class="list-item">
+        <div class="list-header">
+          <h3>Idiomas</h3>
+        </div>
+        <ul>
+          <li><strong>Español:</strong> Nativo</li>
+          <li><strong>Inglés:</strong> Medio</li>
+          <li><strong>Portugués:</strong> Medio</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <p><strong>Alessandro Dante Cabrera Altamirano</strong> · Chiclayo, Perú</p>
+      <p>
+        <a href="mailto:alessandrodjunior28@gmail.com">alessandrodjunior28@gmail.com</a> ·
+        (+51) 952 225 506
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
